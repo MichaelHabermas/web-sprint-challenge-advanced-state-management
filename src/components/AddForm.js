@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { addNewSmurf } from '../actions/index';
+import { addNewSmurf, setError } from '../actions/index';
+
+const initialNewSurfState = {
+	name: '',
+	position: '',
+	nickname: '',
+	description: ''
+};
 
 const AddForm = props => {
 	const { errorMessage, dispatch } = props;
-	const [newSmurf, setNewSmurf] = useState({
-		name: '',
-		position: '',
-		nickname: '',
-		description: ''
-	});
+	const [newSmurf, setNewSmurf] = useState(initialNewSurfState);
 
 	const handleChange = e => {
 		setNewSmurf({
@@ -21,10 +23,13 @@ const AddForm = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		// if (newSmurf.name === '' || newSmurf.position === '' || newSmurf.nickname === '') {
-		// 	errorMessage = 'Name, position and nickname fields are required.';
-		// }
-		dispatch(addNewSmurf(newSmurf));
+		if (newSmurf.name === '' || newSmurf.position === '' || newSmurf.nickname === '') {
+			// errorMessage = 'Name, position and nickname fields are required.';
+			dispatch(setError('Name, position and nickname fields are required.'));
+		} else {
+			dispatch(addNewSmurf(newSmurf));
+			setNewSmurf(initialNewSurfState);
+		}
 	};
 
 	// const errorMessage = '';
