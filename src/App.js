@@ -14,6 +14,7 @@ const App = props => {
 
 	useEffect(() => {
 		dispatch(fetchSmurfs());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (

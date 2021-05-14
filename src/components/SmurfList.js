@@ -3,7 +3,7 @@ import Smurf from './Smurf';
 import { connect } from 'react-redux';
 
 const SmurfList = props => {
-	const { smurfs, isLoading, errorMessage, dispatch } = props;
+	const { smurfs, isLoading } = props;
 
 	// const isLoading = false;
 	// const testSmurf = {
@@ -23,7 +23,7 @@ const SmurfList = props => {
 	return (
 		<div className="listContainer">
 			{smurfs.map((smurf, i) => {
-				return <Smurf key={Date.now() * i} smurf={smurf} />;
+				return <Smurf key={Date.now() * `0.${i}`} smurf={smurf} />;
 			})}
 		</div>
 	);
@@ -32,7 +32,7 @@ const SmurfList = props => {
 const mapStateToProps = state => {
 	return {
 		smurfs: state.smurfs,
-		isFetching: state.isFetching,
+		isLoading: state.isLoading,
 		errorMessage: state.errorMessage
 	};
 };
