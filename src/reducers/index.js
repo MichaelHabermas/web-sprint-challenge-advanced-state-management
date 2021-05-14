@@ -38,7 +38,6 @@ const reducer = (state = initialState, action) => {
 		case SET_ERROR:
 			return {
 				...state,
-				isLoading: false,
 				errorMessage: action.payload
 			};
 		default:

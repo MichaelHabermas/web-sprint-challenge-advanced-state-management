@@ -23,16 +23,15 @@ const AddForm = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		// makes sure all important fields are filled in
 		if (newSmurf.name === '' || newSmurf.position === '' || newSmurf.nickname === '') {
-			// errorMessage = 'Name, position and nickname fields are required.';
 			dispatch(setError('Name, position and nickname fields are required.'));
 		} else {
+			// adds new smurf to list of smurfs, and resets form
 			dispatch(addNewSmurf(newSmurf));
 			setNewSmurf(initialNewSurfState);
 		}
 	};
-
-	// const errorMessage = '';
 
 	return (
 		<section>

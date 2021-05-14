@@ -16,7 +16,6 @@ const SmurfList = props => {
 	// };
 
 	if (isLoading) {
-		// fix this
 		return <h1>Loading...</h1>;
 	}
 
@@ -32,8 +31,7 @@ const SmurfList = props => {
 const mapStateToProps = state => {
 	return {
 		smurfs: state.smurfs,
-		isLoading: state.isLoading,
-		errorMessage: state.errorMessage
+		isLoading: state.isLoading
 	};
 };
 

@@ -10,8 +10,6 @@ export const SET_ERROR = 'SET_ERROR';
 //1. Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve smurfs from our server, saves the result of that call to our state and shows an error if one is made.
 export const fetchSmurfs = () => {
 	return dispatch => {
-		// dispatch({ type: FETCH_START });
-
 		dispatch(fetchStart());
 
 		axios
